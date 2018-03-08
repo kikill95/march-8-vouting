@@ -1,0 +1,15 @@
+{
+  "name": "march-8-vouting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard --verbose",
+    "test:fix": "standard --verbose --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^11.0.0"
+  }
+}
