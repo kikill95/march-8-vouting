@@ -4,12 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --inspect index.js",
+    "server": "node index.js",
     "test": "standard --verbose",
     "test:fix": "standard --verbose --fix"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^1.17.1",
     "standard": "^11.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.9"
   }
 }
