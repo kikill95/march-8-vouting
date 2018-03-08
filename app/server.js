@@ -1,6 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
+const person = require('./collections/persons/routes')
+const nomination = require('./collections/nominations/routes')
+const vote = require('./collections/votes/routes')
+
+const results = require('./routes/results')
+
 module.exports = startServer
 
 function startServer (port) {
@@ -10,6 +16,11 @@ function startServer (port) {
     console.log(`Server running at port: ${port}`)
   })
   app.use(bodyParser.json())
+
+  app.use('/api/v1', person)
+  app.use('/api/v1', nomination)
+  app.use('/api/v1', vote)
+  app.use('/api/v1', results)
   // added for development
   app.get('/favicon.ico', (req, res) => {
     res.status(204)
@@ -23,8 +34,7 @@ function startServer (port) {
   })
   app.use((error, req, res, next) => {
     if (error) {
-      console.error(error)
-      return res.status(400).json({error})
+      return res.status(400).json({error: error.message || 'Server error'})
     }
     next(error)
   })
